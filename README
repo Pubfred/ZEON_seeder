@@ -1,7 +1,7 @@
-ZEON-seeder
+ZEON_seeder
 ==============
 
-ZEON-seeder is a crawler for the ZEON network, which exposes a list
+ZEON_seeder is a crawler for the ZEON network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:
