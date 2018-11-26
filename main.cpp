@@ -356,9 +356,9 @@ extern "C" void* ThreadStats(void*) {
   } while(1);
 }
 
-//static const string mainnet_seeds[] = {"80.211.158.197", "212.237.34.22", "80.211.42.42", "80.211.42.126", "80.211.40.14", "80.211.180.32", "188.213.161.41", "89.46.70.47", "212.237.25.238", "94.177.216.87", "185.12.94.247", "140.82.56.149", "45.76.218.71", "140.82.13.117", "149.28.100.124", "45.76.218.71", "45.76.190.35", "202.182.113.12", ""};
-static const string mainnet_seeds[] = {"80.211.158.197", "212.237.34.22", "80.211.42.42", "80.211.42.126", "80.211.40.14", "80.211.180.32", "188.213.161.41", "89.46.70.47", "212.237.25.238", "94.177.216.87", "185.12.94.247", "140.82.56.149", "45.76.218.71", "140.82.13.117", "149.28.100.124", "45.76.218.71", "45.76.190.35", "202.182.113.12", ""};
-static const string testnet_seeds[] = {"test.seed01.xdna.io", ""};
+
+static const string mainnet_seeds[] = {"45.77.137.85" , ""};
+static const string testnet_seeds[] = {"test.seed01.zeonhexalgo.fun", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
@@ -403,10 +403,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0x47;
-      pchMessageStart[1] = 0x77;
-      pchMessageStart[2] = 0x66;
-      pchMessageStart[3] = 0xbb;
+      pchMessageStart[0] = 0xa2;
+      pchMessageStart[1] = 0x59;
+      pchMessageStart[2] = 0xa9;
+      pchMessageStart[3] = 0x9a;
       seeds = testnet_seeds;
       fTestNet = true;
   }
