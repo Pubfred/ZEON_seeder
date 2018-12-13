@@ -357,7 +357,7 @@ extern "C" void* ThreadStats(void*) {
 }
 
 
-static const string mainnet_seeds[] = {"45.77.137.85" , "5.249.155.15",  "94.177.241.188"};
+static const string mainnet_seeds[] = {"45.77.137.85" ,  "94.177.241.188" , "5.249.155.15" ,"167.99.47.128." , ""};
 static const string testnet_seeds[] = {"test.seed01.zeonhexalgo.fun", ""};
 static const string *seeds = mainnet_seeds;
 
