@@ -60,5 +60,4 @@ $ iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353
 If properly configured, this will allow you to run dnsseed in userspace, using
 the -p 5353 option.
 
-
-<a href="https://www.vultr.com/?ref=7568725"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90"></a>
+<a href="https://www.vultr.com/?ref=7568725"><img src="https://www.vultr.com/media/banner_2.png" width="468" height="60"></a>
