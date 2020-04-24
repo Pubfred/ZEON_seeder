@@ -9,11 +9,12 @@
 #include "netbase.h"
 #include "protocol.h"
 #include "util.h"
+#include <string.h>
 
 #define MIN_RETRY 1000
 
-#define REQUIRE_VERSION 70020
-
+#define REQUIRE_VERSION 70021
+#define REQUIRE_SUBVERSION  "3000101"
 
 static inline int GetRequireHeight(const bool testnet = fTestNet)
 {
@@ -106,6 +107,13 @@ public:
     if (!(services & NODE_NETWORK)) return false;
     if (!ip.IsRoutable()) return false;
     if (clientVersion && clientVersion < REQUIRE_VERSION) return false;
+//  if (clientSubVersion  < REQUIRE_SUBVERSION) return false;
+//    char s1[] = clientSubVersion.c_str() ;
+    char s2[] = "3.0.0.1" ;
+    
+    if (strstr( clientSubVersion.c_str() , s2) != NULL ) return false;
+ 
+    
     if (blocks && blocks < GetRequireHeight()) return false;
 
     if (total <= 3 && success * 2 >= total) return true;
@@ -121,6 +129,12 @@ public:
   int GetBanTime() const {
     if (IsGood()) return 0;
     if (clientVersion && clientVersion < REQUIRE_VERSION) { return 604800; }
+  //if (clientSubVersion  < REQUIRE_SUBVERSION)  { return 604800; }
+
+    char s2[] = "3.0.0.1" ;
+    if (strstr( clientSubVersion.c_str() , s2) != NULL )  { return 604800; }
+
+   
     if (stat1M.reliability - stat1M.weight + 1.0 < 0.15 && stat1M.count > 32) { return 30*86400; }
     if (stat1W.reliability - stat1W.weight + 1.0 < 0.10 && stat1W.count > 16) { return 7*86400; }
     if (stat1D.reliability - stat1D.weight + 1.0 < 0.05 && stat1D.count > 8) { return 1*86400; }
